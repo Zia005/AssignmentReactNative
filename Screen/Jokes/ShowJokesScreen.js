@@ -1,7 +1,4 @@
-// Example of Splash, Login and Sign Up in React Native
-// https://aboutreact.com/react-native-login-and-signup/
 
-// Import React and Component
 import React, { useEffect, useState, Component } from 'react';
 import {FlatList, View, Text, SafeAreaView, StyleSheet,BackHandler} from 'react-native';
 import {useFocusEffect} from '@react-navigation/native';

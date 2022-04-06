@@ -1,7 +1,3 @@
-// Example of Splash, Login and Sign Up in React Native
-// https://aboutreact.com/react-native-login-and-signup/
-
-// Import React and Component
 import React, {useState, useEffect} from 'react';
 import {
   ActivityIndicator,
@@ -22,9 +18,6 @@ const WelcomeScreen = ({route, navigation}) => {
   useEffect(() => {
     setTimeout(() => {
       setAnimating(false);
-      //Check if user_id is set or not
-      //If not then send for Authentication
-      //else send to Home Screen
       navigation.replace('Jokes');
     }, 3000);
   }, []);

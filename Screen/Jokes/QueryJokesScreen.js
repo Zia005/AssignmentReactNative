@@ -1,7 +1,3 @@
-// Example of Splash, Login and Sign Up in React Native
-// https://aboutreact.com/react-native-login-and-signup/
-
-// Import React and Component
 import React, {Component, useEffect, useState } from 'react';
 import {View, Text, SafeAreaView, Button, Picker, TouchableOpacity,StyleSheet,TextInput,} from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
@@ -11,11 +7,6 @@ import NumberPlease from "react-native-number-please";
 export default QueryJokesScreen =  ({navigation}) => {
   const [selectedCategory, setSelectedCategory] = useState("Select One");
   const [selectedLanguage, setSelectedLanguage] = useState("Select One");
-
-
-  // const initialValues = [{ id: 'pizza', value: 3 }];
-  // const [pizzas, setPizzas] = useState(initialValues);
-  // const pizzaNumbers = [{ id: 'pizza', label: '🍕', min: 1, max: 99 }];
 
 //Select Category
   const [category, setCategory] = useState('');
@@ -46,10 +37,10 @@ export default QueryJokesScreen =  ({navigation}) => {
 
   const [amountOfJokes, setAmountOfJokes] = useState('');
   const [loading, setLoading] = useState(false);
-  const [errortext, setErrortext] = useState('');
+  const [errorText, setErrorText] = useState('');
 
   const handleSubmitPress = () => {
-    setErrortext('');
+    setErrorText('');
     if (category == '') {
       alert('Please select the jokes category');
       return;
@@ -72,14 +63,9 @@ export default QueryJokesScreen =  ({navigation}) => {
           amountOfJokes: amountOfJokes,
           language: language
         });
-        // navigation.navigate("ShowJokesScreen")
-        // navigation.navigate('Account', {
-        //   screen: 'ShowJokesScreen',
-        //   params: { user: 'jane' },
-        // });
       } else {
         setLoading(false);
-        setErrortext("Please check all the things again");
+        setErrorText("Please check all the things again");
       }
     } catch (error) {
       setLoading(false);
@@ -116,31 +102,13 @@ export default QueryJokesScreen =  ({navigation}) => {
             Get your jokes based on your demand
             {'\n'}
           </Text>
-          {/* <DropDownPicker
-            open={open}
-            value={value}
-            items={items}
-            setOpen={setOpen}
-            setValue={setValue}
-            setItems={setItems}
-            defaultNull
-            placeholderStyle={{fontWeight: 'bold'}}
-            placeholder="Select a category"
-            dropDownMaxHeight = {20}
-            // containerStyle={{height: 30}}
-            onChangeItem={(item,index)=> {
-              // this.setState({
-              //     item: item.value
-              // });
-              setCategory(item.label)
-            }}
-          /> */}
+        
           <Text>Select a category{'\n'}</Text>
           <View style={{ borderWidth: 1, borderColor: '#7DE24E', borderRadius: 8 }}>
             <Picker
               selectedValue={selectedCategory}
               style={{ height: 50, width: 200 }}
-              itemStyle={{ backgroundColor: "grey", color: "blue", fontFamily:"Ebrima", fontSize:17 }}
+              itemStyle={{ backgroundColor: "grey", color: "blue", fontSize:17 }}
               onValueChange={(itemValue, itemIndex) => setCategory(itemValue)}
             >
               <Picker.Item label="Select One" value="" enabled={true}/>
@@ -174,31 +142,13 @@ export default QueryJokesScreen =  ({navigation}) => {
               blurOnSubmit={false}
             />
           </View>
-          {/* <Text>{'\n'}</Text> */}
-          {/* <DropDownPicker
-            open={languageOpen}
-            value={languageValue}
-            items={languageItems}
-            setOpen={setLanguageOpen}
-            setValue={setLanguageValue}
-            setItems={setLanguageItems}
-            defaultNull
-            placeholderStyle={{fontWeight: 'bold'}}
-            placeholder="Select a language"
-            // containerStyle={{height: 30}}
-            onChangeItem={(item)=> {
-              // this.setState({
-              //     item: item.value
-              // });
-              setLanguage(item.value)
-            }}
-          /> */}
+    
           <Text>Choose a language{'\n'}</Text>
           <View style={{ borderWidth: 1, borderColor: '#7DE24E', borderRadius: 8 }}>
             <Picker
               selectedValue={selectedLanguage}
               style={{ height: 50, width: 200 }}
-              itemStyle={{ backgroundColor: "grey", color: "blue", fontFamily:"Ebrima", fontSize:17 }}
+              itemStyle={{ backgroundColor: "grey", color: "blue", fontSize:17 }}
               onValueChange={(itemValue, itemIndex) => setLanguage(itemValue)}
             >
               <Picker.Item label="Select One" value="" enabled= {true} />
@@ -210,24 +160,9 @@ export default QueryJokesScreen =  ({navigation}) => {
               <Picker.Item label="pt - Portuguese" value="pt" />
             </Picker>
           </View>
-          {/* <Text>Choose a language{'\n\n'}</Text>
-          <View>
-            <Text>I would like</Text>
-            <NumberPlease
-              pickers={pizzaNumbers}
-              values={pizzas}
-              onChange={(values) => setPizzas(values)}
-            />
-          </View> */}
-          {/* <Button
-            onPress={goToJokesScreen}
-            title="Learn More"
-            color="#841584"
-            accessibilityLabel="Learn more about this purple button"
-          /> */}
-          {errortext != '' ? (
+          {errorText != '' ? (
               <Text style={styles.errorTextStyle}>
-                {errortext}
+                {errorText}
               </Text>
             ) : null}
           <TouchableOpacity

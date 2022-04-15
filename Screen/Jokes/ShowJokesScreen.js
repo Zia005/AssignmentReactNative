@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, Component } from 'react';
 import {FlatList, View, Text, SafeAreaView, StyleSheet,BackHandler} from 'react-native';
 import {useFocusEffect} from '@react-navigation/native';
@@ -12,8 +11,8 @@ const ShowJokesScreen = ({route, navigation}) => {
     React.useCallback(() => {
       const onBackPress = () => {
         // navigation.replace('Auth');
-        // Return true to stop default back navigaton
-        // Return false to keep default back navigaton
+        // Return true to stop default back navigation
+        // Return false to keep default back navigation
         return false;
       };
 
@@ -47,10 +46,6 @@ const ShowJokesScreen = ({route, navigation}) => {
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={{ flex: 1, padding: 24 }}>
-      {/* <Text>cat: {JSON.stringify(category)}</Text>
-      <Text>language: {JSON.stringify(language)}</Text>
-      <Text>amount: {JSON.stringify(amountOfJokes)}</Text> */}
-      {/* <Text>{"https://v2.jokeapi.dev/joke/"+category+"?type=single&amount="+amountOfJokes}</Text> */}
       {isLoading ? <Text>Loading...</Text> : 
       ( <View style={{ flex: 1, flexDirection: 'column', justifyContent:  'space-between'}}>
           {/* <Text style={{ fontSize: 18, color: 'green', textAlign: 'center'}}>{data.amount}</Text> */}

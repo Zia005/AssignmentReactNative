@@ -30,12 +30,6 @@ const SplashScreen = ({navigation}) => {
         source={require('../Image/about.png')}
         style={{width: '90%', resizeMode: 'contain', margin: 30}}
       />
-      {/* <ActivityIndicator
-        animating={animating}
-        color="#FFFFFF"
-        size="large"
-        style={styles.activityIndicator}
-      /> */}
     </View>
   );
 };

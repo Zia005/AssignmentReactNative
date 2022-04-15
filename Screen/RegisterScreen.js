@@ -18,15 +18,15 @@ const RegisterScreen = (props) => {
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const [errortext, setErrortext] = useState('');
-  const [isRegistraionSuccess,setIsRegistraionSuccess] = useState(false);
+  const [errorText, setErrorText] = useState('');
+  const [isRegistrationSuccess,setIsRegistrationSuccess] = useState(false);
 
   const emailInputRef = createRef();
   const passwordInputRef = createRef();
   const [animating, setAnimating] = useState(true);
 
   const handleSubmitButton = async() => {
-    setErrortext('');
+    setErrorText('');
     if (!userName) {
       alert('Name can\'t be empty');
       return;
@@ -62,21 +62,21 @@ const RegisterScreen = (props) => {
       setLoading(true);
       if(userName && userEmail && userPassword) {
         setLoading(false);
-        // setIsRegistraionSuccess(true);
+        // setIsRegistrationSuccess(true);
         await AsyncStorage.setItem('userName', userName);
         await AsyncStorage.setItem('userEmail', userEmail);
         await AsyncStorage.setItem('userPassword', userPassword);
         
         props.navigation.navigate('LoginScreen');
       } else {
-        setErrortext("Please check your username, email or password");
+        setErrorText("Please check your username, email or password");
       }
     } catch (error) {
       setLoading(false);
       console.error(error);
     }
   };
-  if (isRegistraionSuccess) {
+  if (isRegistrationSuccess) {
     useEffect(() => {
       setTimeout(() => {
         setAnimating(false);
@@ -185,9 +185,9 @@ const RegisterScreen = (props) => {
               blurOnSubmit={false}
             />
           </View>
-          {errortext != '' ? (
+          {errorText != '' ? (
             <Text style={styles.errorTextStyle}>
-              {errortext}
+              {errorText}
             </Text>
           ) : null}
           <TouchableOpacity
